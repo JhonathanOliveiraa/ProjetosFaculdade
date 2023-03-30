@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/Imagens">
+        <file>Arquivos/acessar.png</file>
+        <file>Arquivos/inserir.png</file>
+        <file>Arquivos/retirar.png</file>
+        <file>Arquivos/windows.jpg</file>
+        <file>Arquivos/jhone.jpeg</file>
+    </qresource>
+</RCC>
