@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TelaPrincipal</class>
+ <widget class="QMainWindow" name="TelaPrincipal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>817</width>
+    <height>647</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TelaPrincipal</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="textEditSaida">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>741</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditAdicionar">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>280</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelLogoPuc">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>81</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="Arquivos.qrc">:/Arquivos/Arquivos/LogoPucGO</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>811</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; font-style:italic; color:#ffffff;&quot;&gt;Projeto LLDE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>277</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#ffffff;&quot;&gt;Valor&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditPosicao">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>227</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>227</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#ffffff;&quot;&gt;Posição&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>741</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#ffffff;&quot;&gt;Mostrar Lista&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelFoto">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>0</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="Arquivos.qrc">:/Arquivos/Arquivos/jhone.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>55</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:700; color:#ffffff;&quot;&gt;Projeto Teste LLDE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>100</y>
+      <width>451</width>
+      <height>118</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButtonInserirInicio">
+         <property name="text">
+          <string>    Inserir Inicio</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/inserir.png</normaloff>:/Arquivos/Arquivos/inserir.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonInserirPosicao">
+         <property name="text">
+          <string>Inserir Posição</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/inserir.png</normaloff>:/Arquivos/Arquivos/inserir.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonInserirFinal">
+         <property name="text">
+          <string>     Inserir Final</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/inserir.png</normaloff>:/Arquivos/Arquivos/inserir.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonInserirOrdenado">
+         <property name="text">
+          <string>Inserir Ordenado</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/inserir.png</normaloff>:/Arquivos/Arquivos/inserir.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButtonAcessarInicio">
+         <property name="text">
+          <string>Acessar Inicio</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/acessar.png</normaloff>:/Arquivos/Arquivos/acessar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonAcessarPosicao">
+         <property name="text">
+          <string>Acessar Posição</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/acessar.png</normaloff>:/Arquivos/Arquivos/acessar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonAcessarFinal">
+         <property name="text">
+          <string>Acessar Final</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/acessar.png</normaloff>:/Arquivos/Arquivos/acessar.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="pushButtonRetirarInicio">
+         <property name="text">
+          <string>Retirar Inicio</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/retirar.png</normaloff>:/Arquivos/Arquivos/retirar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonRetirarPosicao">
+         <property name="text">
+          <string>Retirar Posição</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/retirar.png</normaloff>:/Arquivos/Arquivos/retirar.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonRetirarFinal">
+         <property name="text">
+          <string>Retirar Final</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Arquivos.qrc">
+           <normaloff>:/Arquivos/Arquivos/retirar.png</normaloff>:/Arquivos/Arquivos/retirar.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="labelPlanoDeFundo">
+    <property name="geometry">
+     <rect>
+      <x>-3</x>
+      <y>-26</y>
+      <width>821</width>
+      <height>821</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="Arquivos.qrc">:/Arquivos/Arquivos/BabyYoda.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>labelPlanoDeFundo</zorder>
+   <zorder>textEditSaida</zorder>
+   <zorder>lineEditAdicionar</zorder>
+   <zorder>labelLogoPuc</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>label_3</zorder>
+   <zorder>lineEditPosicao</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>labelFoto</zorder>
+   <zorder>label</zorder>
+   <zorder>horizontalLayoutWidget</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>817</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="Arquivos.qrc"/>
+ </resources>
+ <connections/>
+</ui>

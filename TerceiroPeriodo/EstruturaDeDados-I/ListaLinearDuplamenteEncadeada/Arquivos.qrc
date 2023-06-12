@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/Arquivos">
+        <file>Arquivos/LogoPucGO</file>
+        <file>Arquivos/BabyYoda.jpeg</file>
+        <file>Arquivos/acessar.png</file>
+        <file>Arquivos/inserir.png</file>
+        <file>Arquivos/jhone.jpeg</file>
+        <file>Arquivos/retirar.png</file>
+    </qresource>
+</RCC>
