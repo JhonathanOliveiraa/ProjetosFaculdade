@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/ArquivosFotos">
+        <file>Arquivos/ArquivosFotos/PUC.jpg</file>
+    </qresource>
+    <qresource prefix="/ArquivosParaAbrir">
+        <file>Arquivos/ArquivosParaAbrir/ArquivoAlunosDisciplinas2023.csv</file>
+    </qresource>
+</RCC>
