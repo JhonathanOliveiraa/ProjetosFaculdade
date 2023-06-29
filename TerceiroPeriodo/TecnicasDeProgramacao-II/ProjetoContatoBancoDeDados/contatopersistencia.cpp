@@ -3,7 +3,7 @@ namespace jhone{
 ContatoPersistencia::ContatoPersistencia()
 {
     bd = QSqlDatabase::addDatabase("QSQLITE");
-    nomeDoBancoDeDados = "C:/Users/jhone/OneDrive/Documentos/BancoDeDados/ContatoBD.db";
+    nomeDoBancoDeDados = "C:/Users/jhone/OneDrive/Documentos/BancoDeDados/ContatoBD.db"; // Necessário colocar o diretório do seu computador, o banco de dados está na pasta Arquivos
     bd.setDatabaseName(nomeDoBancoDeDados);
 }
 
