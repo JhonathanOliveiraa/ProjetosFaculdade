@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Arquivos">
+        <file>Arquivos/soniku.jpg</file>
+        <file>Arquivos/solidario.jpeg</file>
+    </qresource>
+</RCC>
