@@ -47,6 +47,16 @@ int VetorAleatorio::buscarNumeroMelhorado(int aux){
     }
     throw QString("O número procurado não existe");
 }
+int VetorAleatorio::buscarBinaria(int aux){
+    int inicio=0, fim = tamanho -1;
+    while(inicio <= tamanho){
+        int meio = (inicio+fim)/2;
+        if(arraySelectionSort[meio]==aux) return meio;
+        if(arraySelectionSort[meio]<aux) inicio = meio+1;
+        else fim = meio -1;
+    }
+    throw QString("O número procurado não existe");
+ }
 QString VetorAleatorio::getConjunto(){
     QString saida = "| ";
     for(int i=0;i<tamanho;i++){
@@ -74,5 +84,4 @@ void VetorAleatorio::selectionSort(){
         arraySelectionSort[num_min] = temp;
     }
 }
-// piroquinha murcha
 }
