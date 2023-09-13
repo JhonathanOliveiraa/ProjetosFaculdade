@@ -5,11 +5,12 @@
 #include <professor.h>
 #include <QList>
 #include <vector>
+#include <iostream>
 class TratamentoDeArquivos
 {
 private:
     QString nomeDoArquivo;
-    QString logErro;
+    std::ofstream arquivoErro;
     std::vector<Professor> array;
 public:
     TratamentoDeArquivos();

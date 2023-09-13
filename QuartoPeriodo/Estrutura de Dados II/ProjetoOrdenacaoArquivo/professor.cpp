@@ -1,6 +1,16 @@
 #include "professor.h"
 
 
+QString Professor::getMatricula() const
+{
+    return matricula;
+}
+
+void Professor::setMatricula(const QString &newMatricula)
+{
+    matricula = newMatricula;
+}
+
 Professor::Professor()
 {
 
@@ -10,10 +20,6 @@ void Professor::setNome(const QString &newNome)
     nome = newNome;
 }
 
-void Professor::setMatricula(const QString &newMatricula)
-{
-    matricula = newMatricula;
-}
 
 void Professor::setDepartamento(const QString &newDepartamento)
 {
@@ -35,10 +41,7 @@ const QString &Professor::getNome() const
     return nome;
 }
 
-const QString &Professor::getMatricula() const
-{
-    return matricula;
-}
+
 
 const QString &Professor::getDepartamento() const
 {

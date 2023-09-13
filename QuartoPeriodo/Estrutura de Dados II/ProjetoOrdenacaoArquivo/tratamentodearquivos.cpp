@@ -3,11 +3,10 @@
 
 TratamentoDeArquivos::TratamentoDeArquivos():
     nomeDoArquivo("C:/Users/jhone/OneDrive/Documentos/GitHub/ProjetosFaculdade/QuartoPeriodo/Estrutura de Dados II/ProjetoOrdenacaoArquivo/Arquivos/DocentesEscolaBD_TESTE_V1.csv"),
-    logErro("logErro.txt")
+    arquivoErro("logErro.txt")
 {
 
 }
-
 void TratamentoDeArquivos::buscarArquivos()
 {
     {
@@ -24,10 +23,7 @@ void TratamentoDeArquivos::buscarArquivos()
                 QString texto = QString::fromStdString(linha);
                 QStringList textoList = texto.split(';');
                 if(textoList.length()!=5) {
-                    std::ofstream arquivoErro;
-                    arquivoErro.open(logErro.toStdString().c_str());
-                    arquivoErro<<texto.toStdString();
-                    arquivoErro.close();
+                    arquivoErro<<linha<<std::endl;
                     continue;
                 }
                 Professor p;
@@ -43,8 +39,6 @@ void TratamentoDeArquivos::buscarArquivos()
             throw erro;
         }
     }
-
-
 }
 std::vector<Professor> TratamentoDeArquivos::getArray() const
 {

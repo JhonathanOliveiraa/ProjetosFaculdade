@@ -11,6 +11,11 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    ordenardepartamento.cpp \
+    ordenarmatricula.cpp \
+    ordenarnome.cpp \
+    ordenartipodecontrato.cpp \
+    ordenartitulacao.cpp \
     professor.cpp \
     templatebusca.cpp \
     templateordenacao.cpp \
@@ -18,6 +23,11 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    ordenardepartamento.h \
+    ordenarmatricula.h \
+    ordenarnome.h \
+    ordenartipodecontrato.h \
+    ordenartitulacao.h \
     professor.h \
     templatebusca.h \
     templateordenacao.h \
