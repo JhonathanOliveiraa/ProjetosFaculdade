@@ -133,7 +133,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Tipo de Contrato</string>
+      <string>TIpo de Contrato</string>
      </property>
     </column>
    </widget>
@@ -235,7 +235,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -4,6 +4,7 @@
 #include <QString>
 #include <tratamentodearquivos.h>
 #include <vector>
+
 class TemplateOrdenacao
 {
 private:

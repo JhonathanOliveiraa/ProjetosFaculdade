@@ -29,6 +29,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     TratamentoDeArquivos LeitorObjeto;
-    std::vector<Professor> p;
+    std::vector<Professor> objProf;
 };
 #endif // MAINWINDOW_H
