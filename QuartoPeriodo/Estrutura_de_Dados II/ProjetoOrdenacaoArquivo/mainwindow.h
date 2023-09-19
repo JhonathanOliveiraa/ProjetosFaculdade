@@ -1,6 +1,5 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include <tratamentodearquivos.h>
 #include <QMessageBox>
@@ -9,7 +8,10 @@
 #include <ordenardepartamento.h>
 #include <ordenartipodecontrato.h>
 #include <ordenartitulacao.h>
+#include <ordenardepartamentotipocontratonome.h>
 #include <templateordenacao.h>
+#include <templatebusca.h>
+#include <buscarnome.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -25,6 +27,8 @@ public:
 private slots:
     void imprimirNaGrid(std::vector<Professor> dados);
     void on_pushButtonOrdenar_clicked();
+
+    void on_pushButtonBuscar_clicked();
 
 private:
     Ui::MainWindow *ui;

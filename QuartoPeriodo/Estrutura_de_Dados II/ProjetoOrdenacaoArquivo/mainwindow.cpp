@@ -79,9 +79,23 @@ void MainWindow::on_pushButtonOrdenar_clicked()
         imprimirNaGrid(dadosDepartamento_Titulacao_Nome);
         }
         if(ui->comboBox_ordenacao->currentIndex()==6){
-        OrdenarDepartamento objetoDepartamento_TipoDeContrato_Nome;
+        OrdenarDepartamentoTipoContratoNome objetoDepartamento_TipoDeContrato_Nome;
         std::vector<Professor> dadosDepartamento_TipoDeContrato_Nome = objetoDepartamento_TipoDeContrato_Nome.arraySelectionSort();
         imprimirNaGrid(dadosDepartamento_TipoDeContrato_Nome);
         }
+}
+
+
+void MainWindow::on_pushButtonBuscar_clicked()
+{
+    if(ui->comboBox_busca->currentIndex()==0){
+        std::vector<Professor> dadosNome;
+        Professor teste;
+        BuscarNome objetoBuscaSequencialNome(dadosNome);
+        dadosNome = objetoBuscaSequencialNome.ordenar();
+        teste = objetoBuscaSequencialNome.buscaSequencialMelhorada(ui->lineEditDado->text());
+        ui->textEdit->setText(teste.getMatricula());
+        imprimirNaGrid(dadosNome);
+    }
 }
 

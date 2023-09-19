@@ -9,9 +9,12 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    buscarmatricula.cpp \
+    buscarnome.cpp \
     main.cpp \
     mainwindow.cpp \
     ordenardepartamento.cpp \
+    ordenardepartamentotipocontratonome.cpp \
     ordenarmatricula.cpp \
     ordenarnome.cpp \
     ordenartipodecontrato.cpp \
@@ -22,8 +25,11 @@ SOURCES += \
     tratamentodearquivos.cpp
 
 HEADERS += \
+    buscarmatricula.h \
+    buscarnome.h \
     mainwindow.h \
     ordenardepartamento.h \
+    ordenardepartamentotipocontratonome.h \
     ordenarmatricula.h \
     ordenarnome.h \
     ordenartipodecontrato.h \

@@ -2,7 +2,7 @@
 
 
 TratamentoDeArquivos::TratamentoDeArquivos():
-    nomeDoArquivo("C:/Users/jhone/OneDrive/Documentos/GitHub/ProjetosFaculdade/QuartoPeriodo/Estrutura de Dados II/ProjetoOrdenacaoArquivo/Arquivos/DocentesEscolaBD_TESTE_V1.csv"),
+    nomeDoArquivo("C:/Users/jhone/OneDrive/Documentos/GitHub/ProjetosFaculdade/QuartoPeriodo/Estrutura_de_Dados II/ProjetoOrdenacaoArquivo/Arquivos/DocentesEscolaBD_TESTE_V1.csv"),
     arquivoErro("logErro.txt")
 {
 
