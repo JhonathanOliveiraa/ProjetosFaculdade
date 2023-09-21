@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>624</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,8 +68,8 @@
      <rect>
       <x>50</x>
       <y>207</y>
-      <width>651</width>
-      <height>271</height>
+      <width>731</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -241,16 +241,35 @@
      <string>BUSCAR</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>104</width>
-      <height>70</height>
+      <x>-2</x>
+      <y>-15</y>
+      <width>811</width>
+      <height>611</height>
      </rect>
     </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="Arquivos.qrc">:/Arquivos/Arquivos/GEORGE.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
+   <zorder>label_4</zorder>
+   <zorder>lineEditDado</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>pushButtonOrdenar</zorder>
+   <zorder>tableWidget</zorder>
+   <zorder>label</zorder>
+   <zorder>comboBox_ordenacao</zorder>
+   <zorder>comboBox_busca</zorder>
+   <zorder>pushButtonBuscar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -264,6 +283,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Arquivos.qrc"/>
+ </resources>
  <connections/>
 </ui>

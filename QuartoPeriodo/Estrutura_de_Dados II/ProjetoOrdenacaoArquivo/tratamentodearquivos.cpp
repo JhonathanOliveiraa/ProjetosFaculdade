@@ -1,4 +1,5 @@
 #include "tratamentodearquivos.h"
+namespace jhone{
 
 
 TratamentoDeArquivos::TratamentoDeArquivos():
@@ -38,7 +39,13 @@ void TratamentoDeArquivos::buscarArquivos()
     }
 }
 
+void TratamentoDeArquivos::abrirLogErro()
+{
+
+}
+
 std::vector<Professor> TratamentoDeArquivos::getArray() const
 {
     return array;
+}
 }

@@ -1,6 +1,7 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 #include <QString>
+namespace jhone {
 
 class Professor
 {
@@ -23,5 +24,5 @@ public:
     QString getMatricula() const;
     void setMatricula(const QString &newMatricula);
 };
-
+}
 #endif // PROFESSOR_H

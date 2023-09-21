@@ -1,4 +1,5 @@
 #include "templateordenacao.h"
+namespace jhone{
 
 TemplateOrdenacao::TemplateOrdenacao()
 {
@@ -20,4 +21,5 @@ std::vector<Professor> TemplateOrdenacao::arraySelectionSort(){
         array[num_min] = temp;
     }
     return array;
+}
 }

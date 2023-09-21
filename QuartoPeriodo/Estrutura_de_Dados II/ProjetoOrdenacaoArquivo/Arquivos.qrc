@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Arquivos">
+        <file>Arquivos/GEORGE.jpg</file>
+    </qresource>
+</RCC>

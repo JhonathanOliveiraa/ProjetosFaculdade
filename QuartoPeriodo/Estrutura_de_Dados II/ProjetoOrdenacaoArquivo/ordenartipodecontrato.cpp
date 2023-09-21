@@ -1,4 +1,5 @@
 #include "ordenartipodecontrato.h"
+namespace jhone{
 
 OrdenarTipoDeContrato::OrdenarTipoDeContrato()
 {
@@ -12,4 +13,5 @@ bool OrdenarTipoDeContrato::compararProfessor(Professor p1, Professor p2)
       else return false;
     }
     else return false;
+}
 }

@@ -1,4 +1,5 @@
 #include "ordenardepartamento.h"
+namespace jhone{
 
 OrdenarDepartamento::OrdenarDepartamento()
 {
@@ -15,3 +16,4 @@ bool OrdenarDepartamento::compararProfessor(Professor p1, Professor p2)
 }
 
 
+}

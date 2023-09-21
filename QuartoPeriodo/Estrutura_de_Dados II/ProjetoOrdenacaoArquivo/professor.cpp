@@ -1,4 +1,5 @@
 #include "professor.h"
+namespace jhone{
 
 
 QString Professor::getMatricula() const
@@ -56,4 +57,5 @@ const QString &Professor::getTitulacao() const
 const QString &Professor::getTipoDeContrato() const
 {
     return tipoDeContrato;
+}
 }

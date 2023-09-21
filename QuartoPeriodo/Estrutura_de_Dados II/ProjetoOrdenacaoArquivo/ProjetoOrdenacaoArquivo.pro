@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     ordenardepartamento.cpp \
+    ordenardepartamentonome.cpp \
     ordenardepartamentotipocontratonome.cpp \
     ordenarmatricula.cpp \
     ordenarnome.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     buscarnome.h \
     mainwindow.h \
     ordenardepartamento.h \
+    ordenardepartamentonome.h \
     ordenardepartamentotipocontratonome.h \
     ordenarmatricula.h \
     ordenarnome.h \
@@ -46,3 +48,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Arquivos.qrc

@@ -7,6 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     try {
+        ui->tableWidget->setColumnWidth(0,90);
+        ui->tableWidget->setColumnWidth(1,285);
+        ui->tableWidget->setColumnWidth(2,95);
+        ui->tableWidget->setColumnWidth(3,85);
         LeitorObjeto.buscarArquivos();
         objProf = LeitorObjeto.getArray();
         imprimirNaGrid(objProf);
@@ -21,7 +25,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::imprimirNaGrid(std::vector<Professor> dados){
+void MainWindow::imprimirNaGrid(std::vector<jhone::Professor> dados){
     try {
         ui->tableWidget->setRowCount(0);
         for (int i = 0; i < (int)dados.size(); i++) {
@@ -47,55 +51,84 @@ void MainWindow::imprimirNaGrid(std::vector<Professor> dados){
 
 void MainWindow::on_pushButtonOrdenar_clicked()
 {
+    try {
         if(ui->comboBox_ordenacao->currentIndex()==0){
-        OrdenarMatricula objetoMatricula;
-        std::vector<Professor> dadosMatricula = objetoMatricula.arraySelectionSort();
+        jhone::OrdenarMatricula objetoMatricula;
+        std::vector<jhone::Professor> dadosMatricula = objetoMatricula.arraySelectionSort();
         imprimirNaGrid(dadosMatricula);
         }
         if(ui->comboBox_ordenacao->currentIndex()==1){
-        OrdenarNome objetoNome;
-        std::vector<Professor> dadosNome = objetoNome.arraySelectionSort();
+        jhone::OrdenarNome objetoNome;
+        std::vector<jhone::Professor> dadosNome = objetoNome.arraySelectionSort();
         imprimirNaGrid(dadosNome);
         }
         if(ui->comboBox_ordenacao->currentIndex()==2){
-        OrdenarDepartamento objetoDepartamentoNome;
-        std::vector<Professor> dadosDepartamento = objetoDepartamentoNome.arraySelectionSort();
+        jhone::OrdenarDepartamentoNome objetoDepartamentoNome;
+        std::vector<jhone::Professor> dadosDepartamento = objetoDepartamentoNome.arraySelectionSort();
         imprimirNaGrid(dadosDepartamento);
         }
 
         if(ui->comboBox_ordenacao->currentIndex()==3){
-        OrdenarTitulacao objetoTitulacaoNome;
-        std::vector<Professor> dadosTitulacao_Nome = objetoTitulacaoNome.arraySelectionSort();
+        jhone::OrdenarTitulacao objetoTitulacaoNome;
+        std::vector<jhone::Professor> dadosTitulacao_Nome = objetoTitulacaoNome.arraySelectionSort();
         imprimirNaGrid(dadosTitulacao_Nome);
         }
         if(ui->comboBox_ordenacao->currentIndex()==4){
-        OrdenarTipoDeContrato objetoTipoDeContratoNome;
-        std::vector<Professor> dadosTipoDeContrato_Nome = objetoTipoDeContratoNome.arraySelectionSort();
+        jhone::OrdenarTipoDeContrato objetoTipoDeContratoNome;
+        std::vector<jhone::Professor> dadosTipoDeContrato_Nome = objetoTipoDeContratoNome.arraySelectionSort();
         imprimirNaGrid(dadosTipoDeContrato_Nome);
         }
         if(ui->comboBox_ordenacao->currentIndex()==5){
-        OrdenarDepartamento objetoDepartamento_Titulacao_Nome;
-        std::vector<Professor> dadosDepartamento_Titulacao_Nome = objetoDepartamento_Titulacao_Nome.arraySelectionSort();
+        jhone::OrdenarDepartamento objetoDepartamento_Titulacao_Nome;
+        std::vector<jhone::Professor> dadosDepartamento_Titulacao_Nome = objetoDepartamento_Titulacao_Nome.arraySelectionSort();
         imprimirNaGrid(dadosDepartamento_Titulacao_Nome);
         }
         if(ui->comboBox_ordenacao->currentIndex()==6){
-        OrdenarDepartamentoTipoContratoNome objetoDepartamento_TipoDeContrato_Nome;
-        std::vector<Professor> dadosDepartamento_TipoDeContrato_Nome = objetoDepartamento_TipoDeContrato_Nome.arraySelectionSort();
+        jhone::OrdenarDepartamentoTipoContratoNome objetoDepartamento_TipoDeContrato_Nome;
+        std::vector<jhone::Professor> dadosDepartamento_TipoDeContrato_Nome = objetoDepartamento_TipoDeContrato_Nome.arraySelectionSort();
         imprimirNaGrid(dadosDepartamento_TipoDeContrato_Nome);
         }
+    } catch (QString &erro) {
+        QMessageBox::information(this, "ERRO DO SISTEMA", erro);
+    }
+
 }
 
 
 void MainWindow::on_pushButtonBuscar_clicked()
 {
-    if(ui->comboBox_busca->currentIndex()==0){
-        std::vector<Professor> dadosNome;
-        Professor teste;
-        BuscarNome objetoBuscaSequencialNome(dadosNome);
-        dadosNome = objetoBuscaSequencialNome.ordenar();
-        teste = objetoBuscaSequencialNome.buscaSequencialMelhorada(ui->lineEditDado->text());
-        ui->textEdit->setText(teste.getMatricula());
-        imprimirNaGrid(dadosNome);
+    try {
+        if(ui->comboBox_busca->currentIndex()==0){
+            if(ui->lineEditDado->text().isEmpty()) throw QString ("É necessário algum dado para a busca.");
+            std::vector<jhone::Professor> dadosNome;
+            jhone::BuscarNome objetoBuscaSequencialNome(LeitorObjeto.getArray());
+            dadosNome.push_back(objetoBuscaSequencialNome.buscaSequencialMelhorada(ui->lineEditDado->text()));
+            imprimirNaGrid(dadosNome);
+        }
+        if(ui->comboBox_busca->currentIndex()==1){
+            if(ui->lineEditDado->text().isEmpty()) throw QString ("É necessário algum dado para a busca.");
+            std::vector<jhone::Professor> dadosMatricula;
+            jhone::BuscarMatricula objetoBuscaSequencialMatricula(LeitorObjeto.getArray());
+            dadosMatricula.push_back(objetoBuscaSequencialMatricula.buscaSequencialMelhorada(ui->lineEditDado->text()));
+            imprimirNaGrid(dadosMatricula);
+        }
+        if(ui->comboBox_busca->currentIndex()==2){
+            if(ui->lineEditDado->text().isEmpty()) throw QString ("É necessário algum dado para a busca.");
+            std::vector<jhone::Professor> dadosNome;
+            jhone::BuscarNome objetoBuscaBinariaNome(LeitorObjeto.getArray());
+            dadosNome.push_back(objetoBuscaBinariaNome.buscaBinaria(ui->lineEditDado->text()));
+            imprimirNaGrid(dadosNome);
+        }
+        if(ui->comboBox_busca->currentIndex()==3){
+            if(ui->lineEditDado->text().isEmpty()) throw QString ("É necessário algum dado para a busca.");
+            std::vector<jhone::Professor> dadosMatricula;
+            jhone::BuscarMatricula objetoBuscaBinariaMatricula(LeitorObjeto.getArray());
+            dadosMatricula.push_back(objetoBuscaBinariaMatricula.buscaBinaria(ui->lineEditDado->text()));
+            imprimirNaGrid(dadosMatricula);
+        }
+    } catch (QString &erro) {
+        QMessageBox::information(this, "ERRO DO SISTEMA", erro);
     }
+
 }
 

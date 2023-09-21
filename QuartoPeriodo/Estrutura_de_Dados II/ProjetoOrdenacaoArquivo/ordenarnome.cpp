@@ -1,4 +1,5 @@
 #include "ordenarnome.h"
+namespace jhone{
 
 OrdenarNome::OrdenarNome()
 {
@@ -11,3 +12,4 @@ bool OrdenarNome::compararProfessor(Professor p1, Professor p2)
     else return false;
 }
 
+}

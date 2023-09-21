@@ -4,10 +4,11 @@
 #include <QString>
 #include <tratamentodearquivos.h>
 #include <vector>
+namespace jhone {
 
 class TemplateOrdenacao
 {
-private:
+protected:
     TratamentoDeArquivos obj;
     std::vector<Professor> array;
 public:
@@ -15,5 +16,5 @@ public:
     std::vector<Professor> arraySelectionSort();
     virtual bool compararProfessor(Professor p1, Professor p2)=0;
 };
-
+}
 #endif // TEMPLATEORDENACAO_H

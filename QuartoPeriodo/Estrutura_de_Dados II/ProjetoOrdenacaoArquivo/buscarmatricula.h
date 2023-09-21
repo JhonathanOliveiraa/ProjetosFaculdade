@@ -4,14 +4,16 @@
 #include <professor.h>
 #include <templatebusca.h>
 #include <ordenarmatricula.h>
-class BuscarMatricula : TemplateBusca
+namespace jhone {
+class BuscarMatricula : public TemplateBusca
 {
 private:
     std::vector<Professor> array;
 public:
     BuscarMatricula(std::vector<Professor> busca);
-    virtual int compararProfessor(Professor p1, QString teste);
+    int compararProfessorBusca(Professor p1, QString busca);
     std::vector<Professor> ordenar();
 };
+}
 
 #endif // BUSCARMATRICULA_H

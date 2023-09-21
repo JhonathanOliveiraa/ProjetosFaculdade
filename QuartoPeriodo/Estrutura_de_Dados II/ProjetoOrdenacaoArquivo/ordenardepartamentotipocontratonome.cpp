@@ -1,4 +1,5 @@
 #include "ordenardepartamentotipocontratonome.h"
+namespace jhone{
 
 OrdenarDepartamentoTipoContratoNome::OrdenarDepartamentoTipoContratoNome()
 {
@@ -11,4 +12,5 @@ bool OrdenarDepartamentoTipoContratoNome::compararProfessor(Professor p1, Profes
     if(p1.getTipoDeContrato().compare(p2.getTipoDeContrato()) < 0) return false;
     if(p1.getNome().compare(p2.getNome()) > 0) return true;
     return false;
+}
 }

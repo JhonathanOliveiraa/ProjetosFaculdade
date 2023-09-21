@@ -2,17 +2,17 @@
 #define BUSCARNOME_H
 #include <templatebusca.h>
 #include <vector>
-#include <templateordenacao.h>
 #include <professor.h>
 #include <ordenarnome.h>
+namespace jhone {
 class BuscarNome : public TemplateBusca
 {
 private:
     std::vector<Professor> array;
 public:
     BuscarNome(std::vector<Professor> busca);
-    virtual int compararProfessor(Professor p1, QString teste);
+    int compararProfessorBusca(Professor p1, QString busca);
     std::vector<Professor> ordenar();
 };
-
+}
 #endif // BUSCARNOME_H

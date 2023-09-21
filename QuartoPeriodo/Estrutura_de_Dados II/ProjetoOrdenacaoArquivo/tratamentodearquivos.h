@@ -6,6 +6,8 @@
 #include <QList>
 #include <vector>
 #include <iostream>
+namespace jhone {
+
 class TratamentoDeArquivos
 {
 private:
@@ -17,5 +19,5 @@ public:
     void buscarArquivos();
     std::vector<Professor> getArray() const;
 };
-
+}
 #endif // TRATAMENTODEARQUIVOS_H

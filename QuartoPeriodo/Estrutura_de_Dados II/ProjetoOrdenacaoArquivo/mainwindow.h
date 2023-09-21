@@ -11,6 +11,8 @@
 #include <ordenardepartamentotipocontratonome.h>
 #include <templateordenacao.h>
 #include <templatebusca.h>
+#include <buscarmatricula.h>
+#include <ordenardepartamentonome.h>
 #include <buscarnome.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,14 +27,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void imprimirNaGrid(std::vector<Professor> dados);
+    void imprimirNaGrid(std::vector<jhone::Professor> dados);
     void on_pushButtonOrdenar_clicked();
 
     void on_pushButtonBuscar_clicked();
 
 private:
     Ui::MainWindow *ui;
-    TratamentoDeArquivos LeitorObjeto;
-    std::vector<Professor> objProf;
+    jhone::TratamentoDeArquivos LeitorObjeto;
+    std::vector<jhone::Professor> objProf;
 };
 #endif // MAINWINDOW_H

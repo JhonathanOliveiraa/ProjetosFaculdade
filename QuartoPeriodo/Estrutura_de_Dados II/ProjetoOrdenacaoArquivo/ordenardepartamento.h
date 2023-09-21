@@ -2,6 +2,7 @@
 #define ORDENARDEPARTAMENTO_H
 #include <templateordenacao.h>
 #include <ordenartitulacao.h>
+namespace jhone {
 
 class OrdenarDepartamento : public TemplateOrdenacao
 {
@@ -12,5 +13,5 @@ public:
     bool compararProfessor(Professor p1, Professor p2);
 
 };
-
+}
 #endif // ORDENARDEPARTAMENTO_H
