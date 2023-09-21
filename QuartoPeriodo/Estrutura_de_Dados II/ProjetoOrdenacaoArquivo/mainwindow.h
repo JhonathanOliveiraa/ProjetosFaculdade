@@ -14,6 +14,7 @@
 #include <buscarmatricula.h>
 #include <ordenardepartamentonome.h>
 #include <buscarnome.h>
+#include <logerro.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -28,12 +29,16 @@ public:
 
 private slots:
     void imprimirNaGrid(std::vector<jhone::Professor> dados);
+
     void on_pushButtonOrdenar_clicked();
 
     void on_pushButtonBuscar_clicked();
 
+    void on_pushButtonLogErro_clicked();
+
 private:
     Ui::MainWindow *ui;
+    logErro *formularioLogErro;
     jhone::TratamentoDeArquivos LeitorObjeto;
     std::vector<jhone::Professor> objProf;
 };

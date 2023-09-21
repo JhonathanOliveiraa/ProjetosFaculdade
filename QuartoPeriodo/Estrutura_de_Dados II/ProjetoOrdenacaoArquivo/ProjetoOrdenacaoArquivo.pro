@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     buscarmatricula.cpp \
     buscarnome.cpp \
+    logerro.cpp \
     main.cpp \
     mainwindow.cpp \
     ordenardepartamento.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 HEADERS += \
     buscarmatricula.h \
     buscarnome.h \
+    logerro.h \
     mainwindow.h \
     ordenardepartamento.h \
     ordenardepartamentonome.h \
@@ -42,6 +44,7 @@ HEADERS += \
     tratamentodearquivos.h
 
 FORMS += \
+    logerro.ui \
     mainwindow.ui
 
 # Default rules for deployment.

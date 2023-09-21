@@ -6,6 +6,7 @@
 #include <QList>
 #include <vector>
 #include <iostream>
+#include <QTextStream>
 namespace jhone {
 
 class TratamentoDeArquivos
@@ -17,6 +18,7 @@ private:
 public:
     TratamentoDeArquivos();
     void buscarArquivos();
+    QString obterLogErro();
     std::vector<Professor> getArray() const;
 };
 }

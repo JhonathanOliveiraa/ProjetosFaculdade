@@ -39,9 +39,18 @@ void TratamentoDeArquivos::buscarArquivos()
     }
 }
 
-void TratamentoDeArquivos::abrirLogErro()
+QString TratamentoDeArquivos::obterLogErro()
 {
-
+    try {
+        std::ifstream arquivoErro("logErro.txt");
+        if(arquivoErro.is_open()){
+        std::string content((std::istreambuf_iterator<char>(arquivoErro)), (std::istreambuf_iterator<char>()));
+        QString conteudo = QString::fromStdString(content);
+        return conteudo;
+        }
+    } catch (QString &erro) {
+        throw erro;
+    }
 }
 
 std::vector<Professor> TratamentoDeArquivos::getArray() const

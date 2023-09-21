@@ -260,6 +260,42 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButtonLogErro">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>160</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>LogERRO</string>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_4"/>
+    <widget class="QWidget" name="page_3"/>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
    <zorder>label_4</zorder>
    <zorder>lineEditDado</zorder>
    <zorder>label_2</zorder>
@@ -270,6 +306,8 @@
    <zorder>comboBox_ordenacao</zorder>
    <zorder>comboBox_busca</zorder>
    <zorder>pushButtonBuscar</zorder>
+   <zorder>pushButtonLogErro</zorder>
+   <zorder>stackedWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -132,3 +132,10 @@ void MainWindow::on_pushButtonBuscar_clicked()
 
 }
 
+
+void MainWindow::on_pushButtonLogErro_clicked()
+{
+    formularioLogErro = new logErro(this);
+    formularioLogErro->show();
+}
+
