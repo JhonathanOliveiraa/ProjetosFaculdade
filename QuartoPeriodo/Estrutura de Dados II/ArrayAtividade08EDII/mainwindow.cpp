@@ -44,6 +44,13 @@ void MainWindow::on_pushButtonGerar_clicked()
         double tempoDeRespostaIS = (tempoFinalIS - tempoInicialIS) / static_cast<double>(CLOCKS_PER_SEC) * 1000;
         ui->textEditTempoIS->setText(QString::number(tempoDeRespostaIS) + " Ms");
 
+        clock_t tempoInicialBS = clock();
+        ui->textEditOrdenadoBubble->setText(vetor->getConjuntoOrdenadoBubbleSort()); // manda ordenar pelo BubbleSort
+        clock_t tempoFinalBS = clock();
+        double tempoDeRespostaBS = (tempoFinalBS - tempoInicialBS) / static_cast<double>(CLOCKS_PER_SEC) * 1000;
+        ui->textEditTempoBS->setText(QString::number(tempoDeRespostaBS) + " Ms");
+
+        ui->textEditExecOrdenBubble->setText(QString::number(vetor->getNumOrdenBubbleSort()));
         ui->textEditExecOrdenSelection->setText(QString::number(vetor->getNumOrdenSelectionSort()));
         ui->textEditExecOrdenInsertion->setText(QString::number(vetor->getNumOrdenInsertionSort()));
 

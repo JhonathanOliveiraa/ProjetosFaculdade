@@ -3,6 +3,8 @@
 #include <QString>
 #include <ctime>
 #include <random>
+#include <bits/stdc++.h>
+
 namespace jhone{
 class VetorAleatorio
 {
@@ -11,9 +13,11 @@ private:
     int *array;
     int *arraySelectionSort;
     int *arrayInsertionSort;
+    int *arrayBubbleSort;
     int numExec;
     int numOrdenSelectionSort;
     int numOrdenInsertionSort;
+    int numOrdenBubbleSort;
 public:
     VetorAleatorio(int tamanho);
     ~VetorAleatorio();
@@ -21,14 +25,17 @@ public:
     QString getConjunto();
     QString getConjuntoOrdenadoSelectionSort();
     QString getConjuntoOrdenadoInsertionSort();
+    QString getConjuntoOrdenadoBubbleSort();
     int buscarNumero(int aux);
     int buscarNumeroMelhorado(int aux);
+    int buscarBinaria(int aux);
     void selectionSort();
     void insertionSort();
-    int buscarBinaria(int aux);
+    void bubbleSort();
     int getNumExec() const;
     int getNumOrdenSelectionSort() const;
     int getNumOrdenInsertionSort() const;
+    int getNumOrdenBubbleSort() const;
 };
 }
 #endif // VETORALEATORIO_H

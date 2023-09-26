@@ -2,17 +2,21 @@
 namespace jhone{
 
 
+
 VetorAleatorio::VetorAleatorio(int tamanho):
     tamanho(0),
     numExec(0),
     numOrdenSelectionSort(0),
-    numOrdenInsertionSort(0)
+    numOrdenInsertionSort(0),
+    numOrdenBubbleSort(0)
 {
     if(tamanho<=0) throw QString ("Tamanho não pode ser negativo nem 0");
     try {
         array = new int[tamanho];
         arraySelectionSort = new int[tamanho];
         arrayInsertionSort = new int[tamanho];
+        arrayBubbleSort = new int[tamanho];
+
         this->tamanho=tamanho;
         unsigned int seed = static_cast<unsigned int>(std::time(nullptr));
         std::srand(seed);
@@ -21,6 +25,7 @@ VetorAleatorio::VetorAleatorio(int tamanho):
             array[i] = numeroAleatorio;
             arraySelectionSort[i] = numeroAleatorio;
             arrayInsertionSort[i] = numeroAleatorio;
+            arrayBubbleSort[i] = numeroAleatorio;
         }
     } catch (std::bad_alloc &erro) {
         throw QString ("Erro ao gerar número aleatório");
@@ -96,6 +101,15 @@ QString VetorAleatorio::getConjuntoOrdenadoInsertionSort()
     return saida;
 }
 
+QString VetorAleatorio::getConjuntoOrdenadoBubbleSort()
+{
+    bubbleSort();
+    QString saida = "| ";
+    for(int i=0;i<tamanho;i++){
+        saida += QString::number(arrayBubbleSort[i]) + " | ";
+    }
+    return saida;
+}
 
 
 void VetorAleatorio::selectionSort(){
@@ -119,13 +133,43 @@ void VetorAleatorio::insertionSort() {
     for (int step = 1; step < getTamanho(); step++) {
         int key = arrayInsertionSort[step];
         int j = step - 1;
-        numOrdenInsertionSort++;
         while (key < arrayInsertionSort[j] && j >= 0) {
             arrayInsertionSort[j + 1] = arrayInsertionSort[j];
             --j;
             numOrdenInsertionSort++;
         }
         arrayInsertionSort[j + 1] = key;
+    }
+}
+
+void VetorAleatorio::bubbleSort(){
+    this->numOrdenBubbleSort=0;
+    for (int step = 0; step < (getTamanho()-1); ++step) {
+
+        // check if swapping occurs
+        int swapped = 0;
+
+        // loop to compare two elements
+        for (int i = 0; i < (getTamanho()-step-1); ++i) {
+
+            // compare two array elements
+            // change > to < to sort in descending order
+            if (arrayBubbleSort[i] > arrayBubbleSort[i + 1]) {
+
+                // swapping occurs if elements
+                // are not in intended order
+                int temp = arrayBubbleSort[i];
+                arrayBubbleSort[i] = arrayBubbleSort[i + 1];
+                arrayBubbleSort[i + 1] = temp;
+                numOrdenBubbleSort++;
+                swapped = 1;
+            }
+        }
+
+        // no swapping means the array is already sorted
+        // so no need of further comparison
+        if (swapped == 0)
+            break;
     }
 }
 
@@ -142,6 +186,10 @@ int VetorAleatorio::getNumOrdenSelectionSort() const
 int VetorAleatorio::getNumOrdenInsertionSort() const
 {
     return numOrdenInsertionSort;
+}
+int VetorAleatorio::getNumOrdenBubbleSort() const
+{
+    return numOrdenBubbleSort;
 }
 
 }
