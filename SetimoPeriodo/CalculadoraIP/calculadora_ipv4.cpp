@@ -106,33 +106,33 @@ string calculadoraIPV4::converterCIDRParaMascara(int cidr) {
 
 string calculadoraIPV4::getClasseIP() {
     if (!validarIPV4()) return "Inválido";
-    int firstOctet = partesIP[0];
+    int primeiroOcteto = partesIP[0];
 
-    if (firstOctet >= 1 && firstOctet <= 126) return "Classe A";
-    if (firstOctet >= 128 && firstOctet <= 191) return "Classe B";
-    if (firstOctet >= 192 && firstOctet <= 223) return "Classe C";
-    if (firstOctet >= 224 && firstOctet <= 239) return "Classe D (Multicast)";
-    if (firstOctet >= 240 && firstOctet <= 255) return "Classe E (Reservado)";
+    if (primeiroOcteto >= 1 && primeiroOcteto <= 126) return "Classe A";
+    if (primeiroOcteto >= 128 && primeiroOcteto <= 191) return "Classe B";
+    if (primeiroOcteto >= 192 && primeiroOcteto <= 223) return "Classe C";
+    if (primeiroOcteto >= 224 && primeiroOcteto <= 239) return "Classe D (Multicast)";
+    if (primeiroOcteto >= 240 && primeiroOcteto <= 255) return "Classe E (Reservado)";
     
     return "Inválido";
 }
 
 string calculadoraIPV4::calcularEnderecoRede() {
-    vector<int> networkAddress(4);
+    vector<int> enderecoRede(4);
     for (int i = 0; i < 4; i++) {
-        networkAddress[i] = partesIP[i] & partesMascara[i];
+        enderecoRede[i] = partesIP[i] & partesMascara[i];
     }
-    return to_string(networkAddress[0]) + "." + to_string(networkAddress[1]) + "." +
-           to_string(networkAddress[2]) + "." + to_string(networkAddress[3]);
+    return to_string(enderecoRede[0]) + "." + to_string(enderecoRede[1]) + "." +
+           to_string(enderecoRede[2]) + "." + to_string(enderecoRede[3]);
 }
 
 string calculadoraIPV4::calcularEnderecoBroadcast() {
-    vector<int> broadcastAddress(4);
+    vector<int> enderecoBroadcast(4);
     for (int i = 0; i < 4; i++) {
-        broadcastAddress[i] = partesIP[i] | (~partesMascara[i] & 255);
+        enderecoBroadcast[i] = partesIP[i] | (~partesMascara[i] & 255);
     }
-    return to_string(broadcastAddress[0]) + "." + to_string(broadcastAddress[1]) + "." +
-           to_string(broadcastAddress[2]) + "." + to_string(broadcastAddress[3]);
+    return to_string(enderecoBroadcast[0]) + "." + to_string(enderecoBroadcast[1]) + "." +
+           to_string(enderecoBroadcast[2]) + "." + to_string(enderecoBroadcast[3]);
 }
 
 string calculadoraIPV4::getPrimeiroHost() {
@@ -152,15 +152,17 @@ int calculadoraIPV4::getNumeroHosts() {
 int main() {
     int option;
     string ip, mascara;
-
+    
+    cout << "Redes de Computadores II\n";
+    cout << "Aluno: Jhonathan Oliveira de Almeida\n";
     cout << "Escolha o tipo de endereçamento:\n";
     cout << "1. Endereçamento com classes\n";
-    cout << "2. Endereçamento sem classes – máscara na notação decimal\n";
-    cout << "3. Endereçamento sem classes – máscara na notação CIDR\n";
+    cout << "2. Endereçamento sem classes - máscara na notação decimal\n";
+    cout << "3. Endereçamento sem classes - máscara na notação CIDR\n";
     cout << "Digite sua opção: ";
     cin >> option;
 
-    cout << "Digite o endereço IPv4: ";
+    cout << "Digite o endereço IP (padrão n.n.n.n): ";
     cin >> ip;
 
     if (option == 1) {
