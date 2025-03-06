@@ -5,34 +5,34 @@
 
 using namespace std;
 
-class IPv4Calculator {
+class calculadoraIPV4 {
 private:
     string ip;
-    string mask;
-    vector<int> ipParts;
-    vector<int> maskParts;
+    string mascara;
+    vector<int> partesIP;
+    vector<int> partesMascara;
     int cidr;
-
+//teste
 public:
-    IPv4Calculator(string ipAddress, string subnetMask) {
-        ip = ipAddress;
-        mask = subnetMask;
+    calculadoraIPV4(string enderecoIP, string mascaraSubnet) {
+        ip = enderecoIP;
+        mascara = mascaraSubnet;
         cidr = -1;
     }
 
-    bool validateIPv4();
-    bool validateMask();
-    string getIPClass();
-    int convertMaskToCIDR();
-    string convertCIDRToMask(int cidr);
-    string calculateNetworkAddress();
-    string calculateBroadcastAddress();
-    string getFirstUsableHost();
-    string getLastUsableHost();
-    int getHostCount();
+    bool validarIPV4();
+    bool validarMascara();
+    string getClasseIP();
+    int converterMascaraParaCIDR();
+    string converterCIDRParaMascara(int cidr);
+    string calcularEnderecoRede();
+    string calcularEnderecoBroadcast();
+    string getPrimeiroHost();
+    string getUltimoHost();
+    int getNumeroHosts();
 };
 
-bool IPv4Calculator::validateIPv4() {
+bool calculadoraIPV4::validarIPV4() {
     stringstream ss(ip);
     string segment;
     int count = 0;
@@ -42,7 +42,7 @@ bool IPv4Calculator::validateIPv4() {
         try {
             int num = stoi(segment);
             if (num < 0 || num > 255) return false;
-            ipParts.push_back(num);
+            partesIP.push_back(num);
         } catch (...) {
             return false;
         }
@@ -51,9 +51,9 @@ bool IPv4Calculator::validateIPv4() {
     return count == 4;
 }
 
-bool IPv4Calculator::validateMask() {
-    if (mask.find(".") != string::npos) {
-        stringstream ss(mask);
+bool calculadoraIPV4::validarMascara() {
+    if (mascara.find(".") != string::npos) {
+        stringstream ss(mascara);
         string segment;
         int count = 0, maskValue = 0;
         bool zeroFound = false;
@@ -63,7 +63,7 @@ bool IPv4Calculator::validateMask() {
             try {
                 int num = stoi(segment);
                 if (num < 0 || num > 255) return false;
-                maskParts.push_back(num);
+                partesMascara.push_back(num);
             } catch (...) {
                 return false;
             }
@@ -74,7 +74,7 @@ bool IPv4Calculator::validateMask() {
         
         for (int i = 0; i < 4; i++) {
             for (int bit = 7; bit >= 0; bit--) {
-                if (maskParts[i] & (1 << bit)) {
+                if (partesMascara[i] & (1 << bit)) {
                     if (zeroFound) return false;
                     maskValue++;
                 } else {
@@ -86,27 +86,27 @@ bool IPv4Calculator::validateMask() {
         return true;
     } else {
         try {
-            cidr = stoi(mask);
+            cidr = stoi(mascara);
             if (cidr < 0 || cidr > 32) return false;
-            mask = convertCIDRToMask(cidr);
-            return validateMask();
+            mascara = converterCIDRParaMascara(cidr);
+            return validarMascara();
         } catch (...) {
             return false;
         }
     }
 }
 
-string IPv4Calculator::convertCIDRToMask(int cidr) {
-    vector<int> mask(4, 0);
+string calculadoraIPV4::converterCIDRParaMascara(int cidr) {
+    vector<int> mascara(4, 0);
     for (int i = 0; i < cidr; i++) {
-        mask[i / 8] |= (1 << (7 - (i % 8)));
+        mascara[i / 8] |= (1 << (7 - (i % 8)));
     }
-    return to_string(mask[0]) + "." + to_string(mask[1]) + "." + to_string(mask[2]) + "." + to_string(mask[3]);
+    return to_string(mascara[0]) + "." + to_string(mascara[1]) + "." + to_string(mascara[2]) + "." + to_string(mascara[3]);
 }
 
-string IPv4Calculator::getIPClass() {
-    if (!validateIPv4()) return "Inválido";
-    int firstOctet = ipParts[0];
+string calculadoraIPV4::getClasseIP() {
+    if (!validarIPV4()) return "Inválido";
+    int firstOctet = partesIP[0];
 
     if (firstOctet >= 1 && firstOctet <= 126) return "Classe A";
     if (firstOctet >= 128 && firstOctet <= 191) return "Classe B";
@@ -117,41 +117,41 @@ string IPv4Calculator::getIPClass() {
     return "Inválido";
 }
 
-string IPv4Calculator::calculateNetworkAddress() {
+string calculadoraIPV4::calcularEnderecoRede() {
     vector<int> networkAddress(4);
     for (int i = 0; i < 4; i++) {
-        networkAddress[i] = ipParts[i] & maskParts[i];
+        networkAddress[i] = partesIP[i] & partesMascara[i];
     }
     return to_string(networkAddress[0]) + "." + to_string(networkAddress[1]) + "." +
            to_string(networkAddress[2]) + "." + to_string(networkAddress[3]);
 }
 
-string IPv4Calculator::calculateBroadcastAddress() {
+string calculadoraIPV4::calcularEnderecoBroadcast() {
     vector<int> broadcastAddress(4);
     for (int i = 0; i < 4; i++) {
-        broadcastAddress[i] = ipParts[i] | (~maskParts[i] & 255);
+        broadcastAddress[i] = partesIP[i] | (~partesMascara[i] & 255);
     }
     return to_string(broadcastAddress[0]) + "." + to_string(broadcastAddress[1]) + "." +
            to_string(broadcastAddress[2]) + "." + to_string(broadcastAddress[3]);
 }
 
-string IPv4Calculator::getFirstUsableHost() {
-    vector<int> net = {ipParts[0] & maskParts[0], ipParts[1] & maskParts[1], ipParts[2] & maskParts[2], (ipParts[3] & maskParts[3]) + 1};
+string calculadoraIPV4::getPrimeiroHost() {
+    vector<int> net = {partesIP[0] & partesMascara[0], partesIP[1] & partesMascara[1], partesIP[2] & partesMascara[2], (partesIP[3] & partesMascara[3]) + 1};
     return to_string(net[0]) + "." + to_string(net[1]) + "." + to_string(net[2]) + "." + to_string(net[3]);
 }
 
-string IPv4Calculator::getLastUsableHost() {
-    vector<int> broad = {ipParts[0] | (~maskParts[0] & 255), ipParts[1] | (~maskParts[1] & 255), ipParts[2] | (~maskParts[2] & 255), (ipParts[3] | (~maskParts[3] & 255)) - 1};
+string calculadoraIPV4::getUltimoHost() {
+    vector<int> broad = {partesIP[0] | (~partesMascara[0] & 255), partesIP[1] | (~partesMascara[1] & 255), partesIP[2] | (~partesMascara[2] & 255), (partesIP[3] | (~partesMascara[3] & 255)) - 1};
     return to_string(broad[0]) + "." + to_string(broad[1]) + "." + to_string(broad[2]) + "." + to_string(broad[3]);
 }
 
-int IPv4Calculator::getHostCount() {
+int calculadoraIPV4::getNumeroHosts() {
     return pow(2, 32 - cidr) - 2;
 }
 
 int main() {
     int option;
-    string ip, mask;
+    string ip, mascara;
 
     cout << "Escolha o tipo de endereçamento:\n";
     cout << "1. Endereçamento com classes\n";
@@ -165,38 +165,38 @@ int main() {
 
     if (option == 1) {
         cout << "Escolha a máscara de sub-rede na notação CIDR (0-32): ";
-        cin >> mask;
+        cin >> mascara;
     } else if (option == 2) {
         cout << "Digite a máscara de sub-rede em notação decimal (ex: 255.255.255.0): ";
-        cin >> mask;
+        cin >> mascara;
     } else if (option == 3) {
         cout << "Digite a máscara de sub-rede na notação CIDR (ex: 24): ";
-        cin >> mask;
+        cin >> mascara;
     } else {
         cout << "Opção inválida!" << endl;
         return 1;
     }
 
-    IPv4Calculator calc(ip, mask);
+    calculadoraIPV4 calc(ip, mascara);
 
-    if (!calc.validateIPv4()) {
+    if (!calc.validarIPV4()) {
         cout << "Endereço IPv4 inválido!" << endl;
         return 1;
     }
 
-    if (!calc.validateMask()) {
+    if (!calc.validarMascara()) {
         cout << "Máscara de sub-rede inválida!" << endl;
         return 1;
     }
 
     if (option == 1) {
-        cout << "Classe do IP: " << calc.getIPClass() << endl;
+        cout << "Classe do IP: " << calc.getClasseIP() << endl;
     }
-    cout << "Endereço de rede: " << calc.calculateNetworkAddress() << endl;
-    cout << "Endereço de broadcast: " << calc.calculateBroadcastAddress() << endl;
-    cout << "Primeiro IP utilizável: " << calc.getFirstUsableHost() << endl;
-    cout << "Último IP utilizável: " << calc.getLastUsableHost() << endl;
-    cout << "Número de hosts disponíveis: " << calc.getHostCount() << endl;
+    cout << "Endereço de rede: " << calc.calcularEnderecoRede() << endl;
+    cout << "Endereço de broadcast: " << calc.calcularEnderecoBroadcast() << endl;
+    cout << "Primeiro IP utilizável: " << calc.getPrimeiroHost() << endl;
+    cout << "Último IP utilizável: " << calc.getUltimoHost() << endl;
+    cout << "Número de hosts disponíveis: " << calc.getNumeroHosts() << endl;
 
     return 0;
 }
