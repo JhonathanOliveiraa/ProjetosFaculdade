@@ -12,7 +12,7 @@ private:
     vector<int> partesIP;
     vector<int> partesMascara;
     int cidr;
-//teste
+
 public:
     calculadoraIPV4(string enderecoIP, string mascaraSubnet) {
         ip = enderecoIP;
