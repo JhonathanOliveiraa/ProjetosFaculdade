@@ -213,7 +213,8 @@ string calculadoraIPV4::getUltimoHost() {
     if (cidr == 32) {
         return "Nenhum host disponível"; // Caso especial para /32
     }
-    vector<int> broad = {partesIP[0] | (~partesMascara[0] & 255), partesIP[1] | (~partesMascara[1] & 255), partesIP[2] | (~partesMascara[2] & 255), (partesIP[3] | (~partesMascara[3] & 255)) - 1};
+    vector<int> broad = {partesIP[0] | (~partesMascara[0] & 255), partesIP[1] | (~partesMascara[1] & 255), partesIP[2] |
+         (~partesMascara[2] & 255), (partesIP[3] | (~partesMascara[3] & 255)) - 1};
     return to_string(broad[0]) + "." + to_string(broad[1]) + "." + to_string(broad[2]) + "." + to_string(broad[3]);
 }
 
@@ -225,7 +226,7 @@ string calculadoraIPV4::getNumeroHosts() {
 
 int main() {
     int option;
-    string ip, mascara;
+    string ip, mascara, erro;
     
     cout << "Redes de Computadores II\n";
     cout << "Aluno: Jhonathan Oliveira de Almeida\n";
@@ -248,18 +249,31 @@ int main() {
         if (calculoComClasse.getClasseIP()=="Classe D (Multicast)" || 
         calculoComClasse.getClasseIP()=="Classe E (Reservado)")  return 0;
         cout << "Endereço de rede: " << calculoComClasse.calcularEnderecoRede() << endl;
+        cout << "Máscara em notação decimal: "<< calculoComClasse.getMascaraPorClasse() << endl;
+        cout << "Máscara em notação CIDR: /" << calculoComClasse.converterMascaraParaCIDR() << endl;
         cout << "Endereço de broadcast: " << calculoComClasse.calcularEnderecoBroadcast() << endl;
         cout << "Primeiro IP utilizável: " << calculoComClasse.getPrimeiroHost() << endl;
         cout << "Último IP utilizável: " << calculoComClasse.getUltimoHost() << endl;
         cout << "Número de hosts disponíveis: " << calculoComClasse.getNumeroHosts() << endl;
         
-        return 1;
+        return 1;   
     } else if (option == 2) {
         cout << "Digite a máscara de sub-rede em notação decimal (ex: 255.255.255.0): ";
         cin >> mascara;
+        while (mascara.length()==2) {
+            cout << "Máscara inválida, digite uma máscara na notação decimal: ";
+            cin >> mascara;
+    } 
+
     } else if (option == 3) {
         cout << "Digite a máscara de sub-rede na notação CIDR (ex: 24): ";
         cin >> mascara;
+
+        while (mascara.length()!=2) {
+            cout << "Máscara inválida, digite na notação CIDR: ";
+            cin >> mascara;
+        }
+
     } else {
         cout << "Opção inválida!" << endl;
         return 1;
@@ -289,7 +303,7 @@ int main() {
         cout << "Máscara em notação CIDR: /" << calc.converterMascaraParaCIDR() << endl;
     }
     if(option == 3){
-    cout << "Máscara em notação decimal: " << calc.converterCIDRParaMascara(calc.converterMascaraParaCIDR()) << endl;
+        cout << "Máscara em notação decimal: " << calc.converterCIDRParaMascara(calc.converterMascaraParaCIDR()) << endl;
     }
     return 0;
 }
